@@ -3,8 +3,19 @@ import streamlit as st
 import tiktoken
 import openai 
 import logging
-from redis import Redis
-from redis.commands.search.query import Query
+
+# from redis import Redis
+# from redis.commands.search.query import Query
+# Milvus 相关的库导入
+from pymilvus import (
+    connections,  # 用于连接 Milvus 数据库
+    Collection,  # 用于操作 Milvus 集合
+    CollectionSchema,  # 定义集合的 schema
+    FieldSchema,  # 定义字段
+    DataType,  # 数据类型
+    utility  # 用于执行特定的数据库工具函数，比如检查集合是否存在
+)
+
 import os
 from datetime import date, datetime, timedelta
 import json
@@ -39,12 +50,24 @@ def json_gpt(input: str):
 # The streamlit script starts here
 logging.info("Starting Streamlit script ...")
 
-# Prepare to connect to Redis
-redis_host = os.getenv('REDIS_HOST', 'localhost')  # default to 'localhost' if not set
-redis_port = os.getenv('REDIS_PORT', '6379')  # default to '6379' if not set
-redis_db = os.getenv('REDIS_DB', '0')  # default to '0' if not set. RediSearch only operates on the default (0) db
- # Instantiates a Redis client. decode_responses=False to avoid decoding the returned embedding vectors
-r = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)
+# # Prepare to connect to Redis
+# redis_host = os.getenv('REDIS_HOST', 'localhost')  # default to 'localhost' if not set
+# redis_port = os.getenv('REDIS_PORT', '6379')  # default to '6379' if not set
+# redis_db = os.getenv('REDIS_DB', '0')  # default to '0' if not set. RediSearch only operates on the default (0) db
+#  # Instantiates a Redis client. decode_responses=False to avoid decoding the returned embedding vectors
+# r = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)
+
+# 连接Milvus
+# 从环境变量获取 Milvus 服务器配置，或使用默认值
+milvus_host = os.getenv('MILVUS_HOST', 'localhost')       # 默认为 localhost
+milvus_port = os.getenv('MILVUS_PORT', '19530')           # Milvus 默认端口为 19530
+
+# 建立连接
+connections.connect(alias="default", host=milvus_host, port=milvus_port)
+
+# 加载已存在的集合
+collection_name = "pdf_page_collection"
+collection = Collection(name=collection_name)
 
 
 st.set_page_config(
@@ -65,7 +88,9 @@ else: # Since streamlit script is executed every time a widget is changed, this 
                 st.write(message["content"])
 
 # Prepare the api_key to call OpenAI
-openai_api_key = os.getenv("OPENAI_API_KEY")
+# 替换一整行
+# openai_api_key = os.getenv("OPENAI_API_KEY")
+
 if not openai_api_key:
     logging.error("KEY is not set.")
     st.error('KEY未设置，请联系我的主人。')
@@ -92,13 +117,26 @@ Format: {{"searchQuery": "search query"}}"""
             query_str = json_gpt(QUERY_GEN_PROMPT)["searchQuery"]
             logging.info(f"Generated query: {query_str}")
             try:
+                # query_embedding = openai.Embedding.create(input=query_str, model="text-embedding-ada-002")["data"][0]["embedding"]
+                # query_vec = np.array(query_embedding).astype(np.float32).tobytes()
+                # 使用 openai 将查询字符串转换成嵌入向量
                 query_embedding = openai.Embedding.create(input=query_str, model="text-embedding-ada-002")["data"][0]["embedding"]
-                query_vec = np.array(query_embedding).astype(np.float32).tobytes()
-                # Prepare the query
-                query_base = (Query("*=>[KNN 2 @page_embedding $vec as score]").sort_by("score").return_fields("score", "page_num", "content").dialect(2))
-                query_param = {"vec": query_vec}
-                query_results = r.ft(INDEX_NAME).search(query_base, query_param).docs
-                result_str = query_results[0].content + "\n\n------another page------\n\n" + query_results[1].content
+                query_vec = np.array(query_embedding).astype(np.float32).tolist()
+
+                # # Prepare the query
+                # query_base = (Query("*=>[KNN 2 @page_embedding $vec as score]").sort_by("score").return_fields("score", "page_num", "content").dialect(2))
+                # query_param = {"vec": query_vec}
+                # query_results = r.ft(INDEX_NAME).search(query_base, query_param).docs
+                # result_str = query_results[0].content + "\n\n------another page------\n\n" + query_results[1].content
+
+                # 调用之前定义的搜索函数
+                collection_name = "pdf_page_collection"  # 使用您的集合名称
+                search_results = search_in_milvus(query_vec, collection_name, top_k=2)
+
+                # 处理搜索结果
+                for hit in search_results:
+                    print(f"Hit ID: {hit.id}, Score: {hit.score}, Page Num: {hit.entity.get('page_num')}, Content: {hit.entity.get('content')[:50]}...")
+
             except Exception as e:
                 logging.error(f"Error querying Reids with embedding: {e}")
                 st.error("无法搜索答案，这很可能是系统故障导致，请联系我的主人。")
@@ -107,6 +145,7 @@ Format: {{"searchQuery": "search query"}}"""
                         "..." + f"({query_results[1].score}){query_results[1].content[:20]}".replace("\n", "") + "...")
             st.session_state.messages.append({"role": "user", "content": f"""请根据搜索结果回答user在前面遇到的问题。注意，请务必首先依赖搜索结果，而不是你自己已有的知识。如果搜索结果中包含了具体操作步骤，也请据此给用户具体操作指引。
 搜索结果：\n{result_str}"""})
+            
             test_messages = st.session_state.messages.copy() # make a copy of the messages for testing & debugging
             try:
                 gpt_response = openai.ChatCompletion.create(
