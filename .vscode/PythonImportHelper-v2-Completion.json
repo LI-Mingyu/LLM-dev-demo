@@ -1,0 +1,873 @@
+[
+    {
+        "label": "scrapy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "scrapy",
+        "description": "scrapy",
+        "detail": "scrapy",
+        "documentation": {}
+    },
+    {
+        "label": "signals",
+        "importPath": "scrapy",
+        "description": "scrapy",
+        "isExtraImport": true,
+        "detail": "scrapy",
+        "documentation": {}
+    },
+    {
+        "label": "is_item",
+        "importPath": "itemadapter",
+        "description": "itemadapter",
+        "isExtraImport": true,
+        "detail": "itemadapter",
+        "documentation": {}
+    },
+    {
+        "label": "ItemAdapter",
+        "importPath": "itemadapter",
+        "description": "itemadapter",
+        "isExtraImport": true,
+        "detail": "itemadapter",
+        "documentation": {}
+    },
+    {
+        "label": "ItemAdapter",
+        "importPath": "itemadapter",
+        "description": "itemadapter",
+        "isExtraImport": true,
+        "detail": "itemadapter",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "runtime",
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "isExtraImport": true,
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "runtime",
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "isExtraImport": true,
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "runtime",
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "isExtraImport": true,
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "tiktoken",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tiktoken",
+        "description": "tiktoken",
+        "detail": "tiktoken",
+        "documentation": {}
+    },
+    {
+        "label": "openai",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "openai",
+        "description": "openai",
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "Redis",
+        "importPath": "redis",
+        "description": "redis",
+        "isExtraImport": true,
+        "detail": "redis",
+        "documentation": {}
+    },
+    {
+        "label": "Redis",
+        "importPath": "redis",
+        "description": "redis",
+        "isExtraImport": true,
+        "detail": "redis",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "redis.commands.search.query",
+        "description": "redis.commands.search.query",
+        "isExtraImport": true,
+        "detail": "redis.commands.search.query",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "redis.commands.search.query",
+        "description": "redis.commands.search.query",
+        "isExtraImport": true,
+        "detail": "redis.commands.search.query",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "get_script_run_ctx",
+        "importPath": "streamlit.runtime.scriptrunner",
+        "description": "streamlit.runtime.scriptrunner",
+        "isExtraImport": true,
+        "detail": "streamlit.runtime.scriptrunner",
+        "documentation": {}
+    },
+    {
+        "label": "get_script_run_ctx",
+        "importPath": "streamlit.runtime.scriptrunner",
+        "description": "streamlit.runtime.scriptrunner",
+        "isExtraImport": true,
+        "detail": "streamlit.runtime.scriptrunner",
+        "documentation": {}
+    },
+    {
+        "label": "get_script_run_ctx",
+        "importPath": "streamlit.runtime.scriptrunner",
+        "description": "streamlit.runtime.scriptrunner",
+        "isExtraImport": true,
+        "detail": "streamlit.runtime.scriptrunner",
+        "documentation": {}
+    },
+    {
+        "label": "connections",
+        "importPath": "pymilvus",
+        "description": "pymilvus",
+        "isExtraImport": true,
+        "detail": "pymilvus",
+        "documentation": {}
+    },
+    {
+        "label": "# 用于连接 Milvus 数据库\n    Collection",
+        "importPath": "pymilvus",
+        "description": "pymilvus",
+        "isExtraImport": true,
+        "detail": "pymilvus",
+        "documentation": {}
+    },
+    {
+        "label": "# 用于操作 Milvus 集合\n    CollectionSchema",
+        "importPath": "pymilvus",
+        "description": "pymilvus",
+        "isExtraImport": true,
+        "detail": "pymilvus",
+        "documentation": {}
+    },
+    {
+        "label": "# 定义集合的 schema\n    FieldSchema",
+        "importPath": "pymilvus",
+        "description": "pymilvus",
+        "isExtraImport": true,
+        "detail": "pymilvus",
+        "documentation": {}
+    },
+    {
+        "label": "# 定义字段\n    DataType",
+        "importPath": "pymilvus",
+        "description": "pymilvus",
+        "isExtraImport": true,
+        "detail": "pymilvus",
+        "documentation": {}
+    },
+    {
+        "label": "# 数据类型\n    utility  # 用于执行特定的数据库工具函数，比如检查集合是否存在",
+        "importPath": "pymilvus",
+        "description": "pymilvus",
+        "isExtraImport": true,
+        "detail": "pymilvus",
+        "documentation": {}
+    },
+    {
+        "label": "QaSpider",
+        "kind": 6,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.spiders.qa",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.spiders.qa",
+        "peekOfCode": "class QaSpider(scrapy.Spider):\n    name = \"qa\"\n    allowed_domains = [\"help.aliyun.com\"]\n    start_urls = [\"https://help.aliyun.com/zh/ecs/support/troubleshooting-1/\"]\n    def parse(self, response):\n        # 提取<section class=\"aliyun-docs-view\" id=\"aliyun-docs-view\">标签内的内容\n        section_content = response.xpath('//*[@id=\"aliyun-docs-view\"]').get()\n        if section_content:\n            # 提取该标签内的链接并跟踪\n            for href in response.xpath('//*[@id=\"aliyun-docs-view\"]//a/@href').extract():",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.spiders.qa",
+        "documentation": {}
+    },
+    {
+        "label": "AliyunecsItem",
+        "kind": 6,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.items",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.items",
+        "peekOfCode": "class AliyunecsItem(scrapy.Item):\n    # define the fields for your item here like:\n    # name = scrapy.Field()\n    pass",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.items",
+        "documentation": {}
+    },
+    {
+        "label": "AliyunecsSpiderMiddleware",
+        "kind": 6,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.middlewares",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.middlewares",
+        "peekOfCode": "class AliyunecsSpiderMiddleware:\n    # Not all methods need to be defined. If a method is not defined,\n    # scrapy acts as if the spider middleware does not modify the\n    # passed objects.\n    @classmethod\n    def from_crawler(cls, crawler):\n        # This method is used by Scrapy to create your spiders.\n        s = cls()\n        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)\n        return s",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.middlewares",
+        "documentation": {}
+    },
+    {
+        "label": "AliyunecsDownloaderMiddleware",
+        "kind": 6,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.middlewares",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.middlewares",
+        "peekOfCode": "class AliyunecsDownloaderMiddleware:\n    # Not all methods need to be defined. If a method is not defined,\n    # scrapy acts as if the downloader middleware does not modify the\n    # passed objects.\n    @classmethod\n    def from_crawler(cls, crawler):\n        # This method is used by Scrapy to create your spiders.\n        s = cls()\n        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)\n        return s",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.middlewares",
+        "documentation": {}
+    },
+    {
+        "label": "AliyunecsPipeline",
+        "kind": 6,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.pipelines",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.pipelines",
+        "peekOfCode": "class AliyunecsPipeline:\n    def process_item(self, item, spider):\n        return item",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.pipelines",
+        "documentation": {}
+    },
+    {
+        "label": "BOT_NAME",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "BOT_NAME = \"aliyunecs\"\nSPIDER_MODULES = [\"aliyunecs.spiders\"]\nNEWSPIDER_MODULE = \"aliyunecs.spiders\"\n# Crawl responsibly by identifying yourself (and your website) on the user-agent\n#USER_AGENT = \"aliyunecs (+http://www.yourdomain.com)\"\n# Obey robots.txt rules\nROBOTSTXT_OBEY = True\n# Configure maximum concurrent requests performed by Scrapy (default: 16)\n#CONCURRENT_REQUESTS = 32\n# Configure a delay for requests for the same website (default: 0)",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SPIDER_MODULES",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "SPIDER_MODULES = [\"aliyunecs.spiders\"]\nNEWSPIDER_MODULE = \"aliyunecs.spiders\"\n# Crawl responsibly by identifying yourself (and your website) on the user-agent\n#USER_AGENT = \"aliyunecs (+http://www.yourdomain.com)\"\n# Obey robots.txt rules\nROBOTSTXT_OBEY = True\n# Configure maximum concurrent requests performed by Scrapy (default: 16)\n#CONCURRENT_REQUESTS = 32\n# Configure a delay for requests for the same website (default: 0)\n# See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "NEWSPIDER_MODULE",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "NEWSPIDER_MODULE = \"aliyunecs.spiders\"\n# Crawl responsibly by identifying yourself (and your website) on the user-agent\n#USER_AGENT = \"aliyunecs (+http://www.yourdomain.com)\"\n# Obey robots.txt rules\nROBOTSTXT_OBEY = True\n# Configure maximum concurrent requests performed by Scrapy (default: 16)\n#CONCURRENT_REQUESTS = 32\n# Configure a delay for requests for the same website (default: 0)\n# See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay\n# See also autothrottle settings and docs",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#USER_AGENT",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#USER_AGENT = \"aliyunecs (+http://www.yourdomain.com)\"\n# Obey robots.txt rules\nROBOTSTXT_OBEY = True\n# Configure maximum concurrent requests performed by Scrapy (default: 16)\n#CONCURRENT_REQUESTS = 32\n# Configure a delay for requests for the same website (default: 0)\n# See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay\n# See also autothrottle settings and docs\n#DOWNLOAD_DELAY = 3\n# The download delay setting will honor only one of:",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROBOTSTXT_OBEY",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "ROBOTSTXT_OBEY = True\n# Configure maximum concurrent requests performed by Scrapy (default: 16)\n#CONCURRENT_REQUESTS = 32\n# Configure a delay for requests for the same website (default: 0)\n# See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay\n# See also autothrottle settings and docs\n#DOWNLOAD_DELAY = 3\n# The download delay setting will honor only one of:\n#CONCURRENT_REQUESTS_PER_DOMAIN = 16\n#CONCURRENT_REQUESTS_PER_IP = 16",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#CONCURRENT_REQUESTS",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#CONCURRENT_REQUESTS = 32\n# Configure a delay for requests for the same website (default: 0)\n# See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay\n# See also autothrottle settings and docs\n#DOWNLOAD_DELAY = 3\n# The download delay setting will honor only one of:\n#CONCURRENT_REQUESTS_PER_DOMAIN = 16\n#CONCURRENT_REQUESTS_PER_IP = 16\n# Disable cookies (enabled by default)\n#COOKIES_ENABLED = False",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#DOWNLOAD_DELAY",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#DOWNLOAD_DELAY = 3\n# The download delay setting will honor only one of:\n#CONCURRENT_REQUESTS_PER_DOMAIN = 16\n#CONCURRENT_REQUESTS_PER_IP = 16\n# Disable cookies (enabled by default)\n#COOKIES_ENABLED = False\n# Disable Telnet Console (enabled by default)\n#TELNETCONSOLE_ENABLED = False\n# Override the default request headers:\n#DEFAULT_REQUEST_HEADERS = {",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#CONCURRENT_REQUESTS_PER_DOMAIN",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#CONCURRENT_REQUESTS_PER_DOMAIN = 16\n#CONCURRENT_REQUESTS_PER_IP = 16\n# Disable cookies (enabled by default)\n#COOKIES_ENABLED = False\n# Disable Telnet Console (enabled by default)\n#TELNETCONSOLE_ENABLED = False\n# Override the default request headers:\n#DEFAULT_REQUEST_HEADERS = {\n#    \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\",\n#    \"Accept-Language\": \"en\",",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#CONCURRENT_REQUESTS_PER_IP",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#CONCURRENT_REQUESTS_PER_IP = 16\n# Disable cookies (enabled by default)\n#COOKIES_ENABLED = False\n# Disable Telnet Console (enabled by default)\n#TELNETCONSOLE_ENABLED = False\n# Override the default request headers:\n#DEFAULT_REQUEST_HEADERS = {\n#    \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\",\n#    \"Accept-Language\": \"en\",\n#}",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#COOKIES_ENABLED",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#COOKIES_ENABLED = False\n# Disable Telnet Console (enabled by default)\n#TELNETCONSOLE_ENABLED = False\n# Override the default request headers:\n#DEFAULT_REQUEST_HEADERS = {\n#    \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\",\n#    \"Accept-Language\": \"en\",\n#}\n# Enable or disable spider middlewares\n# See https://docs.scrapy.org/en/latest/topics/spider-middleware.html",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#TELNETCONSOLE_ENABLED",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#TELNETCONSOLE_ENABLED = False\n# Override the default request headers:\n#DEFAULT_REQUEST_HEADERS = {\n#    \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\",\n#    \"Accept-Language\": \"en\",\n#}\n# Enable or disable spider middlewares\n# See https://docs.scrapy.org/en/latest/topics/spider-middleware.html\n#SPIDER_MIDDLEWARES = {\n#    \"aliyunecs.middlewares.AliyunecsSpiderMiddleware\": 543,",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#DEFAULT_REQUEST_HEADERS",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#DEFAULT_REQUEST_HEADERS = {\n#    \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\",\n#    \"Accept-Language\": \"en\",\n#}\n# Enable or disable spider middlewares\n# See https://docs.scrapy.org/en/latest/topics/spider-middleware.html\n#SPIDER_MIDDLEWARES = {\n#    \"aliyunecs.middlewares.AliyunecsSpiderMiddleware\": 543,\n#}\n# Enable or disable downloader middlewares",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#SPIDER_MIDDLEWARES",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#SPIDER_MIDDLEWARES = {\n#    \"aliyunecs.middlewares.AliyunecsSpiderMiddleware\": 543,\n#}\n# Enable or disable downloader middlewares\n# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html\n#DOWNLOADER_MIDDLEWARES = {\n#    \"aliyunecs.middlewares.AliyunecsDownloaderMiddleware\": 543,\n#}\n# Enable or disable extensions\n# See https://docs.scrapy.org/en/latest/topics/extensions.html",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#DOWNLOADER_MIDDLEWARES",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#DOWNLOADER_MIDDLEWARES = {\n#    \"aliyunecs.middlewares.AliyunecsDownloaderMiddleware\": 543,\n#}\n# Enable or disable extensions\n# See https://docs.scrapy.org/en/latest/topics/extensions.html\n#EXTENSIONS = {\n#    \"scrapy.extensions.telnet.TelnetConsole\": None,\n#}\n# Configure item pipelines\n# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#EXTENSIONS",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#EXTENSIONS = {\n#    \"scrapy.extensions.telnet.TelnetConsole\": None,\n#}\n# Configure item pipelines\n# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html\n#ITEM_PIPELINES = {\n#    \"aliyunecs.pipelines.AliyunecsPipeline\": 300,\n#}\n# Enable and configure the AutoThrottle extension (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/autothrottle.html",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#ITEM_PIPELINES",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#ITEM_PIPELINES = {\n#    \"aliyunecs.pipelines.AliyunecsPipeline\": 300,\n#}\n# Enable and configure the AutoThrottle extension (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/autothrottle.html\n#AUTOTHROTTLE_ENABLED = True\n# The initial download delay\n#AUTOTHROTTLE_START_DELAY = 5\n# The maximum download delay to be set in case of high latencies\n#AUTOTHROTTLE_MAX_DELAY = 60",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#AUTOTHROTTLE_ENABLED",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#AUTOTHROTTLE_ENABLED = True\n# The initial download delay\n#AUTOTHROTTLE_START_DELAY = 5\n# The maximum download delay to be set in case of high latencies\n#AUTOTHROTTLE_MAX_DELAY = 60\n# The average number of requests Scrapy should be sending in parallel to\n# each remote server\n#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0\n# Enable showing throttling stats for every response received:\n#AUTOTHROTTLE_DEBUG = False",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#AUTOTHROTTLE_START_DELAY",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#AUTOTHROTTLE_START_DELAY = 5\n# The maximum download delay to be set in case of high latencies\n#AUTOTHROTTLE_MAX_DELAY = 60\n# The average number of requests Scrapy should be sending in parallel to\n# each remote server\n#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0\n# Enable showing throttling stats for every response received:\n#AUTOTHROTTLE_DEBUG = False\n# Enable and configure HTTP caching (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#AUTOTHROTTLE_MAX_DELAY",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#AUTOTHROTTLE_MAX_DELAY = 60\n# The average number of requests Scrapy should be sending in parallel to\n# each remote server\n#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0\n# Enable showing throttling stats for every response received:\n#AUTOTHROTTLE_DEBUG = False\n# Enable and configure HTTP caching (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings\n#HTTPCACHE_ENABLED = True\n#HTTPCACHE_EXPIRATION_SECS = 0",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#AUTOTHROTTLE_TARGET_CONCURRENCY",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0\n# Enable showing throttling stats for every response received:\n#AUTOTHROTTLE_DEBUG = False\n# Enable and configure HTTP caching (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings\n#HTTPCACHE_ENABLED = True\n#HTTPCACHE_EXPIRATION_SECS = 0\n#HTTPCACHE_DIR = \"httpcache\"\n#HTTPCACHE_IGNORE_HTTP_CODES = []\n#HTTPCACHE_STORAGE = \"scrapy.extensions.httpcache.FilesystemCacheStorage\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#AUTOTHROTTLE_DEBUG",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#AUTOTHROTTLE_DEBUG = False\n# Enable and configure HTTP caching (disabled by default)\n# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings\n#HTTPCACHE_ENABLED = True\n#HTTPCACHE_EXPIRATION_SECS = 0\n#HTTPCACHE_DIR = \"httpcache\"\n#HTTPCACHE_IGNORE_HTTP_CODES = []\n#HTTPCACHE_STORAGE = \"scrapy.extensions.httpcache.FilesystemCacheStorage\"\n# Set settings whose default value is deprecated to a future-proof value\nREQUEST_FINGERPRINTER_IMPLEMENTATION = \"2.7\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#HTTPCACHE_ENABLED",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#HTTPCACHE_ENABLED = True\n#HTTPCACHE_EXPIRATION_SECS = 0\n#HTTPCACHE_DIR = \"httpcache\"\n#HTTPCACHE_IGNORE_HTTP_CODES = []\n#HTTPCACHE_STORAGE = \"scrapy.extensions.httpcache.FilesystemCacheStorage\"\n# Set settings whose default value is deprecated to a future-proof value\nREQUEST_FINGERPRINTER_IMPLEMENTATION = \"2.7\"\nTWISTED_REACTOR = \"twisted.internet.asyncioreactor.AsyncioSelectorReactor\"\nFEED_EXPORT_ENCODING = \"utf-8\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#HTTPCACHE_EXPIRATION_SECS",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#HTTPCACHE_EXPIRATION_SECS = 0\n#HTTPCACHE_DIR = \"httpcache\"\n#HTTPCACHE_IGNORE_HTTP_CODES = []\n#HTTPCACHE_STORAGE = \"scrapy.extensions.httpcache.FilesystemCacheStorage\"\n# Set settings whose default value is deprecated to a future-proof value\nREQUEST_FINGERPRINTER_IMPLEMENTATION = \"2.7\"\nTWISTED_REACTOR = \"twisted.internet.asyncioreactor.AsyncioSelectorReactor\"\nFEED_EXPORT_ENCODING = \"utf-8\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#HTTPCACHE_DIR",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#HTTPCACHE_DIR = \"httpcache\"\n#HTTPCACHE_IGNORE_HTTP_CODES = []\n#HTTPCACHE_STORAGE = \"scrapy.extensions.httpcache.FilesystemCacheStorage\"\n# Set settings whose default value is deprecated to a future-proof value\nREQUEST_FINGERPRINTER_IMPLEMENTATION = \"2.7\"\nTWISTED_REACTOR = \"twisted.internet.asyncioreactor.AsyncioSelectorReactor\"\nFEED_EXPORT_ENCODING = \"utf-8\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#HTTPCACHE_IGNORE_HTTP_CODES",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#HTTPCACHE_IGNORE_HTTP_CODES = []\n#HTTPCACHE_STORAGE = \"scrapy.extensions.httpcache.FilesystemCacheStorage\"\n# Set settings whose default value is deprecated to a future-proof value\nREQUEST_FINGERPRINTER_IMPLEMENTATION = \"2.7\"\nTWISTED_REACTOR = \"twisted.internet.asyncioreactor.AsyncioSelectorReactor\"\nFEED_EXPORT_ENCODING = \"utf-8\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "#HTTPCACHE_STORAGE",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "#HTTPCACHE_STORAGE = \"scrapy.extensions.httpcache.FilesystemCacheStorage\"\n# Set settings whose default value is deprecated to a future-proof value\nREQUEST_FINGERPRINTER_IMPLEMENTATION = \"2.7\"\nTWISTED_REACTOR = \"twisted.internet.asyncioreactor.AsyncioSelectorReactor\"\nFEED_EXPORT_ENCODING = \"utf-8\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REQUEST_FINGERPRINTER_IMPLEMENTATION",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "REQUEST_FINGERPRINTER_IMPLEMENTATION = \"2.7\"\nTWISTED_REACTOR = \"twisted.internet.asyncioreactor.AsyncioSelectorReactor\"\nFEED_EXPORT_ENCODING = \"utf-8\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TWISTED_REACTOR",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "TWISTED_REACTOR = \"twisted.internet.asyncioreactor.AsyncioSelectorReactor\"\nFEED_EXPORT_ENCODING = \"utf-8\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "FEED_EXPORT_ENCODING",
+        "kind": 5,
+        "importPath": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "description": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "peekOfCode": "FEED_EXPORT_ENCODING = \"utf-8\"",
+        "detail": "AliyunQA.scrapy-prj-aliyunecs.aliyunecs.settings",
+        "documentation": {}
+    },
+    {
+        "label": "json_gpt",
+        "kind": 2,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "def json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},\n        ],\n        temperature=0.2,\n    )\n    text = completion.choices[0].message.content",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "GPT_MODEL",
+        "kind": 5,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "GPT_MODEL = \"gpt-4\"\nVECTOR_DIM = 1536 \nDISTANCE_METRIC = \"COSINE\"  \nINDEX_NAME = \"AliyunQA\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "VECTOR_DIM",
+        "kind": 5,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "VECTOR_DIM = 1536 \nDISTANCE_METRIC = \"COSINE\"  \nINDEX_NAME = \"AliyunQA\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "DISTANCE_METRIC",
+        "kind": 5,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "DISTANCE_METRIC = \"COSINE\"  \nINDEX_NAME = \"AliyunQA\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},\n        ],",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "INDEX_NAME",
+        "kind": 5,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "INDEX_NAME = \"AliyunQA\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},\n        ],\n        temperature=0.2,",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "redis_host",
+        "kind": 5,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "redis_host = os.getenv('REDIS_HOST', 'localhost')  # default to 'localhost' if not set\nredis_port = os.getenv('REDIS_PORT', '6379')  # default to '6379' if not set\nredis_db = os.getenv('REDIS_DB', '0')  # default to '0' if not set. RediSearch only operates on the default (0) db\n # Instantiates a Redis client. decode_responses=False to avoid decoding the returned embedding vectors\nr = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)\nst.set_page_config(\n    page_title=\"阿里云运维助手\",\n    page_icon=\"🤖\",\n)\nst.subheader(\"阿里云运维助手\")",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "redis_port",
+        "kind": 5,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "redis_port = os.getenv('REDIS_PORT', '6379')  # default to '6379' if not set\nredis_db = os.getenv('REDIS_DB', '0')  # default to '0' if not set. RediSearch only operates on the default (0) db\n # Instantiates a Redis client. decode_responses=False to avoid decoding the returned embedding vectors\nr = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)\nst.set_page_config(\n    page_title=\"阿里云运维助手\",\n    page_icon=\"🤖\",\n)\nst.subheader(\"阿里云运维助手\")\nif \"messages\" not in st.session_state.keys():",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "redis_db",
+        "kind": 5,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "redis_db = os.getenv('REDIS_DB', '0')  # default to '0' if not set. RediSearch only operates on the default (0) db\n # Instantiates a Redis client. decode_responses=False to avoid decoding the returned embedding vectors\nr = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)\nst.set_page_config(\n    page_title=\"阿里云运维助手\",\n    page_icon=\"🤖\",\n)\nst.subheader(\"阿里云运维助手\")\nif \"messages\" not in st.session_state.keys():\n    # Initialize the session_state.messages",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "r",
+        "kind": 5,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "r = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)\nst.set_page_config(\n    page_title=\"阿里云运维助手\",\n    page_icon=\"🤖\",\n)\nst.subheader(\"阿里云运维助手\")\nif \"messages\" not in st.session_state.keys():\n    # Initialize the session_state.messages\n    st.session_state.messages = [{\"role\": \"system\", \"content\": \"你是一个阿里云运维助手。\"}]\nelse: # Since streamlit script is executed every time a widget is changed, this \"else\" is not necessary, but improves readability",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "openai_api_key",
+        "kind": 5,
+        "importPath": "AliyunQA.chat",
+        "description": "AliyunQA.chat",
+        "peekOfCode": "openai_api_key = os.getenv(\"OPENAI_API_KEY\")\nif not openai_api_key:\n    logging.error(\"KEY is not set.\")\n    st.error('KEY未设置，请联系我的主人。')\n    st.stop() \nelse:\n    openai.api_key = openai_api_key\n# User-provided prompt\nif user_prompt := st.chat_input('在此输入您的问题'):\n    logging.info(f\"User's prompt: {user_prompt}\")",
+        "detail": "AliyunQA.chat",
+        "documentation": {}
+    },
+    {
+        "label": "json_gpt",
+        "kind": 2,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "def json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},\n        ],\n        temperature=0.2,\n    )\n    text = completion.choices[0].message.content",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "GPT_MODEL",
+        "kind": 5,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "GPT_MODEL = \"gpt-4\"\nVECTOR_DIM = 1536 \nDISTANCE_METRIC = \"COSINE\"  \nINDEX_NAME = \"AliyunQA\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "VECTOR_DIM",
+        "kind": 5,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "VECTOR_DIM = 1536 \nDISTANCE_METRIC = \"COSINE\"  \nINDEX_NAME = \"AliyunQA\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "DISTANCE_METRIC",
+        "kind": 5,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "DISTANCE_METRIC = \"COSINE\"  \nINDEX_NAME = \"AliyunQA\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},\n        ],",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "INDEX_NAME",
+        "kind": 5,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "INDEX_NAME = \"AliyunQA\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},\n        ],\n        temperature=0.2,",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "redis_host",
+        "kind": 5,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "redis_host = os.getenv('REDIS_HOST', 'localhost')  # default to 'localhost' if not set\nredis_port = os.getenv('REDIS_PORT', '6379')  # default to '6379' if not set\nredis_db = os.getenv('REDIS_DB', '0')  # default to '0' if not set. RediSearch only operates on the default (0) db\n # Instantiates a Redis client. decode_responses=False to avoid decoding the returned embedding vectors\nr = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)\nst.set_page_config(\n    page_title=\"阿里云运维助手\",\n    page_icon=\"🤖\",\n)\nst.subheader(\"阿里云运维助手\")",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "redis_port",
+        "kind": 5,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "redis_port = os.getenv('REDIS_PORT', '6379')  # default to '6379' if not set\nredis_db = os.getenv('REDIS_DB', '0')  # default to '0' if not set. RediSearch only operates on the default (0) db\n # Instantiates a Redis client. decode_responses=False to avoid decoding the returned embedding vectors\nr = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)\nst.set_page_config(\n    page_title=\"阿里云运维助手\",\n    page_icon=\"🤖\",\n)\nst.subheader(\"阿里云运维助手\")\nuser_prompt = st.text_input(\"请输入您的问题：\",\"\", key=\"input\")",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "redis_db",
+        "kind": 5,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "redis_db = os.getenv('REDIS_DB', '0')  # default to '0' if not set. RediSearch only operates on the default (0) db\n # Instantiates a Redis client. decode_responses=False to avoid decoding the returned embedding vectors\nr = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)\nst.set_page_config(\n    page_title=\"阿里云运维助手\",\n    page_icon=\"🤖\",\n)\nst.subheader(\"阿里云运维助手\")\nuser_prompt = st.text_input(\"请输入您的问题：\",\"\", key=\"input\")\nif st.button('提问', key='generationSubmit'):",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "r",
+        "kind": 5,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "r = Redis(host=redis_host, port=redis_port, db=redis_db, decode_responses=False)\nst.set_page_config(\n    page_title=\"阿里云运维助手\",\n    page_icon=\"🤖\",\n)\nst.subheader(\"阿里云运维助手\")\nuser_prompt = st.text_input(\"请输入您的问题：\",\"\", key=\"input\")\nif st.button('提问', key='generationSubmit'):\n    with st.spinner(\"人工智能正在思考...\"):\n        QUERY_GEN_PROMPT = f\"\"\"",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "user_prompt",
+        "kind": 5,
+        "importPath": "AliyunQA.search",
+        "description": "AliyunQA.search",
+        "peekOfCode": "user_prompt = st.text_input(\"请输入您的问题：\",\"\", key=\"input\")\nif st.button('提问', key='generationSubmit'):\n    with st.spinner(\"人工智能正在思考...\"):\n        QUERY_GEN_PROMPT = f\"\"\"\nYou are an Aliyun operations assistant\nYou have access to a search API that returns troubleshooting articles.\nGenerate search query extracting key words from the user's question.\nUser question: {user_prompt}\nFormat: {{\"searchQuery\": \"search query\"}}\"\"\"\n    query_str = json_gpt(QUERY_GEN_PROMPT)[\"searchQuery\"]",
+        "detail": "AliyunQA.search",
+        "documentation": {}
+    },
+    {
+        "label": "json_gpt",
+        "kind": 2,
+        "importPath": "SangforWP.chat",
+        "description": "SangforWP.chat",
+        "peekOfCode": "def json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},\n        ],\n        temperature=0.2,\n    )\n    text = completion.choices[0].message.content",
+        "detail": "SangforWP.chat",
+        "documentation": {}
+    },
+    {
+        "label": "GPT_MODEL",
+        "kind": 5,
+        "importPath": "SangforWP.chat",
+        "description": "SangforWP.chat",
+        "peekOfCode": "GPT_MODEL = \"gpt-4\"\nVECTOR_DIM = 1536 \nDISTANCE_METRIC = \"COSINE\"  \nINDEX_NAME = \"SangforWP\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},",
+        "detail": "SangforWP.chat",
+        "documentation": {}
+    },
+    {
+        "label": "VECTOR_DIM",
+        "kind": 5,
+        "importPath": "SangforWP.chat",
+        "description": "SangforWP.chat",
+        "peekOfCode": "VECTOR_DIM = 1536 \nDISTANCE_METRIC = \"COSINE\"  \nINDEX_NAME = \"SangforWP\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},",
+        "detail": "SangforWP.chat",
+        "documentation": {}
+    },
+    {
+        "label": "DISTANCE_METRIC",
+        "kind": 5,
+        "importPath": "SangforWP.chat",
+        "description": "SangforWP.chat",
+        "peekOfCode": "DISTANCE_METRIC = \"COSINE\"  \nINDEX_NAME = \"SangforWP\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},\n        ],",
+        "detail": "SangforWP.chat",
+        "documentation": {}
+    },
+    {
+        "label": "INDEX_NAME",
+        "kind": 5,
+        "importPath": "SangforWP.chat",
+        "description": "SangforWP.chat",
+        "peekOfCode": "INDEX_NAME = \"SangforWP\"\n# Helper functions\ndef json_gpt(input: str):\n    completion = openai.ChatCompletion.create(\n        model=GPT_MODEL,\n        messages=[\n            {\"role\": \"system\", \"content\": \"Output only valid JSON\"},\n            {\"role\": \"user\", \"content\": input},\n        ],\n        temperature=0.2,",
+        "detail": "SangforWP.chat",
+        "documentation": {}
+    },
+    {
+        "label": "milvus_host",
+        "kind": 5,
+        "importPath": "SangforWP.chat",
+        "description": "SangforWP.chat",
+        "peekOfCode": "milvus_host = os.getenv('MILVUS_HOST', 'localhost')       # 默认为 localhost\nmilvus_port = os.getenv('MILVUS_PORT', '19530')           # Milvus 默认端口为 19530\n# 建立连接\nconnections.connect(alias=\"default\", host=milvus_host, port=milvus_port)\n# 加载已存在的集合\ncollection_name = \"pdf_page_collection\"\ncollection = Collection(name=collection_name)\nst.set_page_config(\n    page_title=\"会说话的白皮书\",\n    page_icon=\"📚\",",
+        "detail": "SangforWP.chat",
+        "documentation": {}
+    },
+    {
+        "label": "milvus_port",
+        "kind": 5,
+        "importPath": "SangforWP.chat",
+        "description": "SangforWP.chat",
+        "peekOfCode": "milvus_port = os.getenv('MILVUS_PORT', '19530')           # Milvus 默认端口为 19530\n# 建立连接\nconnections.connect(alias=\"default\", host=milvus_host, port=milvus_port)\n# 加载已存在的集合\ncollection_name = \"pdf_page_collection\"\ncollection = Collection(name=collection_name)\nst.set_page_config(\n    page_title=\"会说话的白皮书\",\n    page_icon=\"📚\",\n)",
+        "detail": "SangforWP.chat",
+        "documentation": {}
+    },
+    {
+        "label": "collection_name",
+        "kind": 5,
+        "importPath": "SangforWP.chat",
+        "description": "SangforWP.chat",
+        "peekOfCode": "collection_name = \"pdf_page_collection\"\ncollection = Collection(name=collection_name)\nst.set_page_config(\n    page_title=\"会说话的白皮书\",\n    page_icon=\"📚\",\n)\nst.subheader(\"📚会说话的白皮书\")\nst.write(\"您好！我是《深信服超融合可靠性白皮书》，有什么我可以帮到您的？\")\nif \"messages\" not in st.session_state.keys():\n    # Initialize the session_state.messages",
+        "detail": "SangforWP.chat",
+        "documentation": {}
+    },
+    {
+        "label": "collection",
+        "kind": 5,
+        "importPath": "SangforWP.chat",
+        "description": "SangforWP.chat",
+        "peekOfCode": "collection = Collection(name=collection_name)\nst.set_page_config(\n    page_title=\"会说话的白皮书\",\n    page_icon=\"📚\",\n)\nst.subheader(\"📚会说话的白皮书\")\nst.write(\"您好！我是《深信服超融合可靠性白皮书》，有什么我可以帮到您的？\")\nif \"messages\" not in st.session_state.keys():\n    # Initialize the session_state.messages\n    st.session_state.messages = [{\"role\": \"system\", \"content\": \"你是一个有IT系统专业知识的人工智能助手，尤其精通超融合的可靠性技术。你的主要职责是回答用户关于深信服超融合系统的可靠性方面的问题。\"}]",
+        "detail": "SangforWP.chat",
+        "documentation": {}
+    }
+]
