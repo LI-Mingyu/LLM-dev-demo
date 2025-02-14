@@ -1,7 +1,7 @@
 import numpy as np
 import streamlit as st
 import tiktoken
-import openai 
+from openai import OpenAI  
 import logging
 from redis import Redis
 from redis.commands.search.query import Query
@@ -14,22 +14,26 @@ import json
 from streamlit import runtime
 from streamlit.runtime.scriptrunner import get_script_run_ctx
 
-GPT_MODEL = "gpt-4"
-VECTOR_DIM = 1536 
+LLM = "qwen-max"
+VECTOR_DIM = 1024
 DISTANCE_METRIC = "COSINE"  
 INDEX_NAME = "AliyunQA"
 
+client = OpenAI(
+    api_key=os.getenv("DASHSCOPE_API_KEY"),  # 环境变量名称变更
+    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+)
+
 # Helper functions
 def json_gpt(input: str):
-    completion = openai.ChatCompletion.create(
-        model=GPT_MODEL,
+    completion = client.chat.completions.create(  # 使用客户端实例
+        model=LLM,
         messages=[
             {"role": "system", "content": "Output only valid JSON"},
             {"role": "user", "content": input},
         ],
         temperature=0.2,
     )
-
     text = completion.choices[0].message.content
     parsed = json.loads(text)
 
@@ -63,15 +67,6 @@ else: # Since streamlit script is executed every time a widget is changed, this 
             with st.chat_message(message["role"]):
                 st.write(message["content"])
 
-# Prepare the api_key to call OpenAI
-openai_api_key = os.getenv("OPENAI_API_KEY")
-if not openai_api_key:
-    logging.error("KEY is not set.")
-    st.error('KEY未设置，请联系我的主人。')
-    st.stop() 
-else:
-    openai.api_key = openai_api_key
-
 # User-provided prompt
 if user_prompt := st.chat_input('在此输入您的问题'):
     logging.info(f"User's prompt: {user_prompt}")
@@ -91,8 +86,8 @@ Format: {{"searchQuery": "search query"}}"""
             query_str = json_gpt(QUERY_GEN_PROMPT)["searchQuery"]
             logging.info(f"Generated query: {query_str}")
             try:
-                query_embedding = openai.Embedding.create(input=query_str, model="text-embedding-ada-002")["data"][0]["embedding"]
-                query_vec = np.array(query_embedding).astype(np.float32).tobytes()
+                query_embedding = client.embeddings.create(input=query_str, model="text-embedding-v3", dimensions=1024, encoding_format="float")
+                query_vec = np.array(query_embedding.data[0].embedding, dtype=np.float32).tobytes()
                 # Prepare the query
                 query_base = (Query("*=>[KNN 2 @md_embedding $vec as score]").sort_by("score").return_fields("score", "url", "md").dialect(2))
                 query_param = {"vec": query_vec}
@@ -108,32 +103,28 @@ Format: {{"searchQuery": "search query"}}"""
 搜索结果：\n{result_md}"""})
             test_messages = st.session_state.messages.copy()
             try:
-                gpt_response = openai.ChatCompletion.create(
-                        model=GPT_MODEL,
-                        messages=st.session_state.messages,
-                        temperature=0.5,
-                        stream=True)
+                # 流式响应处理
+                llm_response = client.chat.completions.create(
+                    model=LLM,
+                    messages=st.session_state.messages,
+                    temperature=0.5,
+                    stream=True
+                )
                 resp_display = st.empty()
                 collected_resp_content = ""
-                for chunk in gpt_response:
-                    if not chunk['choices'][0]['finish_reason']:
-                        collected_resp_content += chunk['choices'][0]['delta']['content']
-                        resp_display.write(collected_resp_content)
+                for chunk in llm_response:
+                    if chunk.choices[0].finish_reason is None:  
+                        content = chunk.choices[0].delta.content 
+                        if content:
+                            collected_resp_content += content
+                            resp_display.write(collected_resp_content)
+
+            # 修改6: 错误处理适配
             except Exception as e:
-                logging.error(f"Error generating response from OpenAI: {e}")
-                st.error('AI没有响应，可能是因为我们正在经历访问高峰，请稍后刷新页面重试。如果问题仍然存在，请联系我的主人。')
-                st.stop() 
+                logging.error(f"阿里云API错误: {e}")
+                st.error('服务暂时不可用，请稍后重试或联系管理员')
+                st.stop()
             logging.info(f"AI's response: {collected_resp_content[:50]}".replace("\n", "") + "..." + f"{collected_resp_content[-50:]}".replace("\n", ""))
-    # Count the number of tokens used
-    tokenizer = tiktoken.encoding_for_model(GPT_MODEL)
-    # Because of ChatGPT's message format, there are 4 extra tokens for each message
-    # Ref: https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb
-    n_token_input = 0
-    for message in st.session_state.messages:
-        n_token_input += len(tokenizer.encode(message["content"])) + 4 
-    n_token_input += 3 # every reply is primed with <|start|>assistant<|message|>
-    n_token_output = len(tokenizer.encode(collected_resp_content))
-    logging.info(f"Token usage: {n_token_input} -> {n_token_output}")
 
     # Add the generated msg to session state
     st.session_state.messages[-1] = {"role": "assistant", "content": collected_resp_content}

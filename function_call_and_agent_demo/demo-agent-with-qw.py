@@ -1,4 +1,3 @@
-# 为后面代码所需要的库补充import
 import os
 from github import Github
 import json
@@ -6,36 +5,28 @@ from http import HTTPStatus
 import dashscope
 from typing import Tuple
 
+# 定义颜色代码
+GREEN = '\033[92m'
+WHITE = '\033[97m'
+RESET = '\033[0m'
+
 # 函数定义区
-# 调用github库读取一个repo的目录结构，并以树的形式的字符串返回
 def get_repo_tree(repo_full_name, branch=None):
-    # 从环境变量里读取github的token
     token = os.getenv("GITHUB_TOKEN", None)
-    # 创建一个github对象
     g = Github(token)
-    # 获取一个repo对象
     repo = g.get_repo(f"{repo_full_name}")
-    # 获取repo的目录结构
-    # Ensure branch is not None
     if branch is None:
         branch = "main"
     tree = repo.get_git_tree(sha=branch, recursive=True)
-    # 构造树形式的字符串
     tree_str = ""
     for item in tree.tree:
         tree_str += f"{item.path}\n"
     return tree_str
 
-# 调用github库读取一个repo中的某个文件的内容
 def get_repo_file_content(repo_full_name, file_path, branch=None):
-    # 从环境变量里读取github的token
     token = os.getenv("GITHUB_TOKEN", None)
-    # 创建一个github对象
     g = Github(token)
-    # 获取一个repo对象
     repo = g.get_repo(f"{repo_full_name}")
-    # 获取文件内容
-    # Ensure branch is not None
     if branch is None:
         branch = "main"
     file_content = repo.get_contents(file_path, ref=branch)
@@ -78,12 +69,9 @@ def get_repo_file_content(repo_full_name, file_path, branch=None):
 # ]
 TOOLS = [
     {
-        'name_for_human':
-        '获取repo目录结构',
-        'name_for_model':
-        'get_repo_tree',
-        'description_for_model':
-        'Get the directory structure of a repository',
+        'name_for_human': '获取repo目录结构',
+        'name_for_model': 'get_repo_tree',
+        'description_for_model': 'Get the directory structure of a repository',
         'parameters': [{
             'name': 'repo_full_name',
             'description': 'The full name of the repository, e.g. openai/gpt-3',
@@ -101,12 +89,9 @@ TOOLS = [
         }],
     },
     {
-        'name_for_human':
-        '获取repo文件内容',
-        'name_for_model':
-        'get_repo_file_content',
-        'description_for_model':
-        'Get the content of a file in a repository',
+        'name_for_human': '获取repo文件内容',
+        'name_for_model': 'get_repo_file_content',
+        'description_for_model': 'Get the content of a file in a repository',
         'parameters': [{
             'name': 'repo_full_name',
             'description': 'The full name of the repository, e.g. openai/gpt-3',
@@ -130,7 +115,6 @@ TOOLS = [
             },
         }],
     },
-
 ]
 
 available_functions = {
@@ -186,10 +170,10 @@ def call_with_messages(prompt):
     response = dashscope.Generation.call(
         dashscope.Generation.Models.qwen_plus,
         messages=messages,
-        result_format='message',  # set the result to be "message" format.
+        result_format='message',
     )
     if response.status_code == HTTPStatus.OK:
-        return(response['output']['choices'][0]['message']['content']) #打印出其中的message content
+        return(response['output']['choices'][0]['message']['content'])
     else:
         return('Request id: %s, Status code: %s, error code: %s, error message: %s' % (
             response.request_id, response.status_code,
@@ -200,11 +184,9 @@ def parse_latest_plugin_call(text: str) -> Tuple[str, str]:
     i = text.rfind('\nAction:')
     j = text.rfind('\nAction Input:')
     k = text.rfind('\nObservation:')
-    if 0 <= i < j:  # If the text has `Action` and `Action input`,
-        if k < j:  # but does not contain `Observation`,
-            # then it is likely that `Observation` is ommited by the LLM,
-            # because the output text may have discarded the stop word.
-            text = text.rstrip() + '\nObservation:'  # Add it back.
+    if 0 <= i < j:
+        if k < j:
+            text = text.rstrip() + '\nObservation:'
             k = text.rfind('\nObservation:')
     if 0 <= i < j < k:
         plugin_name = text[i + len('\nAction:'):j].strip()
@@ -226,10 +208,21 @@ def use_api(tools, response):
         return f"Error: {e}"
     return observed_content
 
+def color_text(text: str) -> str:
+    # 将Thought部分用绿色，其他部分用白色
+    colored_text = ""
+    lines = text.split('\n')
+    for line in lines:
+        if line.startswith("Thought:"):
+            colored_text += f"{GREEN}{line}{RESET}\n"
+        else:
+            colored_text += f"{WHITE}{line}{RESET}\n"
+    return colored_text
+
 prompt = build_planning_prompt(TOOLS, query="分析https://github.com/shadow1ng/fscan，查看相关源码，告诉我redis系统反弹shell相关的代码在哪里，并解释这些代码的含义。")
 print(prompt)
 response = call_with_messages(prompt)
-print(response)
+print(color_text(response))
 while "Final Answer" not in response:
     api_output = use_api(TOOLS, response)
     if api_output == "no tool founds":
@@ -237,5 +230,5 @@ while "Final Answer" not in response:
     prompt = prompt + response + "Observation:\n" + api_output
     print("Observation:\n" + api_output)
     response = call_with_messages(prompt)
-    print(response)
+    print(color_text(response))
 
