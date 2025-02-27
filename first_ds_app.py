@@ -4,8 +4,8 @@ from openai import OpenAI
 
 # 设置命令行参数解析
 parser = argparse.ArgumentParser(description='AI对话脚本')
-parser.add_argument('--model', type=str, default='deepseek-v3',
-                    help='指定使用的模型名称（默认：deepseek-v3）')
+parser.add_argument('--model', type=str, default='deepseek-ai/DeepSeek-R1',
+                    help='指定使用的模型名称（默认：deepseek-ai/DeepSeek-R1）')
 
 args = parser.parse_args()
 
@@ -33,10 +33,10 @@ while True:
         model=args.model,
         messages=messages
     )
-    new_reply = completion.choices[0].message.content
-    
-    # 打印并记录回复
-    print(f"\n{args.model}:", new_reply)
-    messages.append({'role': 'assistant', 'content': new_reply})
+    # 打印模型的思考过程和回复
+    if hasattr(completion.choices[0].message, 'reasoning_content'):
+        print(f"\n{args.model} think:", completion.choices[0].message.reasoning_content)
+    print(f"\n{args.model}:", completion.choices[0].message.content)
+    messages.append({'role': 'assistant', 'content': completion.choices[0].message.content})
 
 print("对话已结束")
