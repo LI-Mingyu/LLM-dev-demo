@@ -7,7 +7,7 @@ from openai import OpenAI
 from typing import Tuple
 
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format='%(asctime)s %(levelname)s: %(message)s',
     handlers=[
         logging.FileHandler('agent_debug.log'),
@@ -145,24 +145,22 @@ available_functions = {
 
 TOOL_DESC = """{name_for_model}: Call this tool to interact with the {name_for_human} API. What is the {name_for_human} API useful for? {description_for_model} Parameters: {parameters} Format the arguments as a JSON object."""
 
-REACT_PROMPT = """Answer the following questions as best you can. You have access to the following tools:
+REACT_PROMPT = """I am trying to answer the questions: {query}
+
+I have access to the following tools:
 
 {tool_descs}
 
-Use the following format:
+I will write exactly one of the following items:
 
-Question: the input question you must answer
-Thought: you should always think about what to do
-Action: the action to take, should be one of [{tool_names}]
-Action Input: the input to the action
-Observation: the result of the action
-... (this Thought/Action/Action Input/Observation can be repeated zero or more times)
-Thought: I now know the final answer
-Final Answer: the final answer to the original input question
+- Thought: I always think about what to do.
+- Action: the action to take, should be one of [{tool_names}]. Action Input: the input to the action
+- Final Answer: the final answer to the original question.
+
+I NEVER guess or assume repository structures, file contents, or code details based on my own knowledge, but use the provided tools to get REAL data from the GitHub repository. 
 
 Begin!
-
-Question: {query}"""
+"""
 
 def build_planning_prompt(TOOLS, query):
     tool_descs = []
@@ -206,8 +204,8 @@ def call_with_messages(prompt: str) -> str:
             base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
         )
 
-        messages = [{'role': 'system', 'content': 'You is a helpful assistant.'},
-                    {'role': 'user', 'content': prompt}]
+        messages = [{'role': 'system', 'content': 'You is a helpful assistant in software developing.'},
+                    {'role': 'assistant', 'content': prompt}]
 
         reasoning_content = ""  # 记录完整思考过程
         answer_content = ""     # 记录完整回复
@@ -217,7 +215,7 @@ def call_with_messages(prompt: str) -> str:
         
         # 创建流式请求
         completion = client.chat.completions.create(
-            model="deepseek-r1",
+            model="deepseek-v3",
             messages=messages,
             stream=True
         )
@@ -232,7 +230,7 @@ def call_with_messages(prompt: str) -> str:
                 if hasattr(delta, 'reasoning_content') and delta.reasoning_content is not None:
                     if not has_reasoning:
                         has_reasoning = True
-                        print(f"\ndeepseek-r1 正在思考...")
+                        print(f"\nAI 正在思考...")
                     
                     print(f"\033[37m{delta.reasoning_content}\033[0m", end='', flush=True)
                     reasoning_content += delta.reasoning_content
@@ -240,9 +238,9 @@ def call_with_messages(prompt: str) -> str:
                 elif hasattr(delta, 'content') and delta.content is not None:
                     if not is_answering:
                         if has_reasoning:
-                            print(f"\n\ndeepseek-r1 回复:", end='', flush=True)
+                            print(f"\n\nAI 回复:", end='', flush=True)
                         else:
-                            print(f"\ndeepseek-r1 回复:", end='', flush=True)
+                            print(f"\nAI 回复:", end='', flush=True)
                         is_answering = True
                     
                     print(delta.content, end='', flush=True)
@@ -362,7 +360,8 @@ def run_agent(query: str, max_iterations: int = 10) -> str:
 
 if __name__ == "__main__":
     try:
-        query = "分析https://github.com/shadow1ng/fscan，查看相关源码，告诉我redis系统反弹shell相关的代码在哪里，并解释这些代码的含义。"
+        # query = "分析https://github.com/shadow1ng/fscan，查看相关源码，告诉我redis系统反弹shell相关的代码在哪里，并解释这些代码的含义。"
+        query = "https://github.com/ai-shifu/ChatALL 是如何接入OpenAI的？。"
         final_answer = run_agent(query)
         print(f"\nFinal Answer:\n{final_answer}")
     except Exception as e:
