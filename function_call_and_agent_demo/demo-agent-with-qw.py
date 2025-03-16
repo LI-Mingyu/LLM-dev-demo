@@ -1,20 +1,32 @@
 import os
+import logging
 from github import Github
 import json
 from http import HTTPStatus
-import dashscope
+from openai import OpenAI
 from typing import Tuple
 
-# 定义颜色代码
-GREEN = '\033[92m'
-WHITE = '\033[97m'
-RESET = '\033[0m'
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s %(levelname)s: %(message)s',
+    handlers=[
+        logging.FileHandler('agent_debug.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
 
 # 函数定义区
-def get_repo_tree(repo_full_name, branch=None):
-    token = os.getenv("GITHUB_TOKEN", None)
-    g = Github(token)
-    repo = g.get_repo(f"{repo_full_name}")
+def get_repo_tree(repo_full_name: str, branch: str | None = None) -> str:
+    token = os.getenv("GITHUB_TOKEN")
+    if not token:
+        raise ValueError("GITHUB_TOKEN environment variable is required")
+    
+    try:
+        g = Github(token)
+        repo = g.get_repo(repo_full_name)
+    except Exception as e:
+        raise RuntimeError(f"Failed to access repository {repo_full_name}: {str(e)}")
     if branch is None:
         branch = "main"
     tree = repo.get_git_tree(sha=branch, recursive=True)
@@ -23,13 +35,22 @@ def get_repo_tree(repo_full_name, branch=None):
         tree_str += f"{item.path}\n"
     return tree_str
 
-def get_repo_file_content(repo_full_name, file_path, branch=None):
-    token = os.getenv("GITHUB_TOKEN", None)
-    g = Github(token)
-    repo = g.get_repo(f"{repo_full_name}")
+def get_repo_file_content(repo_full_name: str, file_path: str, branch: str | None = None) -> str:
+    token = os.getenv("GITHUB_TOKEN")
+    if not token:
+        raise ValueError("GITHUB_TOKEN environment variable is required")
+    
+    try:
+        g = Github(token)
+        repo = g.get_repo(repo_full_name)
+    except Exception as e:
+        raise RuntimeError(f"Failed to access repository {repo_full_name}: {str(e)}")
     if branch is None:
         branch = "main"
-    file_content = repo.get_contents(file_path, ref=branch)
+    try:
+        file_content = repo.get_contents(file_path, ref=branch)
+    except Exception as e:
+        raise RuntimeError(f"Failed to get file content from {file_path}: {str(e)}")
     return file_content.decoded_content.decode("utf-8")
 
 # 参考如下示例为上述函数写tools描述
@@ -81,7 +102,7 @@ TOOLS = [
             },
         }, {
             'name': 'branch',
-            'description': 'The branch name, e.g. master',
+            'description': 'The branch name, e.g. master (defaults to "main" if not provided)',
             'required': False,
             'schema': {
                 'type': 'string'
@@ -108,7 +129,7 @@ TOOLS = [
             },
         }, {
             'name': 'branch',
-            'description': 'The branch name, e.g. master',
+            'description': 'The branch name, e.g. master (defaults to "main" if not provided)',
             'required': False,
             'schema': {
                 'type': 'string'
@@ -163,72 +184,186 @@ def build_planning_prompt(TOOLS, query):
     prompt = REACT_PROMPT.format(tool_descs=tool_descs, tool_names=tool_names, query=query)
     return prompt
 
-def call_with_messages(prompt):
-    messages = [{'role': 'system', 'content': 'You are a helpful assistant.'},
-                {'role': 'user', 'content': prompt}]
+def call_with_messages(prompt: str) -> str:
+    """Make a streaming API call to the LLM and handle the response.
+    
+    Args:
+        prompt: The input prompt to send to the LLM
+        
+    Returns:
+        The accumulated response content from the LLM
+        
+    Raises:
+        RuntimeError: If the API call fails or returns an error
+    """
+    api_key = os.getenv("DASHSCOPE_API_KEY")
+    if not api_key:
+        raise ValueError("DASHSCOPE_API_KEY environment variable is required")
+    
+    try:
+        client = OpenAI(
+            api_key=api_key,
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+        )
 
-    response = dashscope.Generation.call(
-        dashscope.Generation.Models.qwen_plus,
-        messages=messages,
-        result_format='message',
-    )
-    if response.status_code == HTTPStatus.OK:
-        return(response['output']['choices'][0]['message']['content'])
-    else:
-        return('Request id: %s, Status code: %s, error code: %s, error message: %s' % (
-            response.request_id, response.status_code,
-            response.code, response.message
-        ))
+        messages = [{'role': 'system', 'content': 'You is a helpful assistant.'},
+                    {'role': 'user', 'content': prompt}]
+
+        reasoning_content = ""  # 记录完整思考过程
+        answer_content = ""     # 记录完整回复
+        is_answering = False    # 标记是否开始回复
+        has_reasoning = False   # 标记模型是否具有思考能力
+        current_line = ""       # 用于累积当前行的内容
+        
+        # 创建流式请求
+        completion = client.chat.completions.create(
+            model="deepseek-r1",
+            messages=messages,
+            stream=True
+        )
+
+        for chunk in completion:
+            if not chunk.choices:
+                if hasattr(chunk, 'usage'):
+                    pass
+            else:
+                delta = chunk.choices[0].delta
+                
+                if hasattr(delta, 'reasoning_content') and delta.reasoning_content is not None:
+                    if not has_reasoning:
+                        has_reasoning = True
+                        print(f"\ndeepseek-r1 正在思考...")
+                    
+                    print(f"\033[37m{delta.reasoning_content}\033[0m", end='', flush=True)
+                    reasoning_content += delta.reasoning_content
+                
+                elif hasattr(delta, 'content') and delta.content is not None:
+                    if not is_answering:
+                        if has_reasoning:
+                            print(f"\n\ndeepseek-r1 回复:", end='', flush=True)
+                        else:
+                            print(f"\ndeepseek-r1 回复:", end='', flush=True)
+                        is_answering = True
+                    
+                    print(delta.content, end='', flush=True)
+                    current_line += delta.content
+                    answer_content += delta.content
+        
+        # Handle any remaining content in current_line
+        if current_line and not is_answering:
+            print(current_line)
+        
+        return answer_content
+
+    except Exception as e:
+        raise RuntimeError(f"Failed to communicate with LLM: {str(e)}")
 
 def parse_latest_plugin_call(text: str) -> Tuple[str, str]:
-    i = text.rfind('\nAction:')
-    j = text.rfind('\nAction Input:')
-    k = text.rfind('\nObservation:')
-    if 0 <= i < j:
-        if k < j:
+    """Parse the latest plugin call from the response text.
+    
+    Args:
+        text: The response text containing plugin call information
+        
+    Returns:
+        A tuple containing (plugin_name, plugin_args) if found, 
+        otherwise empty strings
+    """
+    action_start = text.rfind('\nAction:')
+    action_input_start = text.rfind('\nAction Input:')
+    observation_start = text.rfind('\nObservation:')
+    
+    # Ensure we have complete action and action input
+    if 0 <= action_start < action_input_start:
+        # If observation is missing or appears before action input,
+        # add it to ensure proper parsing
+        if observation_start < action_input_start:
             text = text.rstrip() + '\nObservation:'
-            k = text.rfind('\nObservation:')
-    if 0 <= i < j < k:
-        plugin_name = text[i + len('\nAction:'):j].strip()
-        plugin_args = text[j + len('\nAction Input:'):k].strip()
+            observation_start = text.rfind('\nObservation:')
+    
+    # We have complete action, action input and observation
+    if 0 <= action_start < action_input_start < observation_start:
+        plugin_name = text[action_start + len('\nAction:'):action_input_start].strip()
+        plugin_args = text[action_input_start + len('\nAction Input:'):observation_start].strip()
         return plugin_name, plugin_args
+    
     return '', ''
 
 def use_api(tools, response):
+    logger.debug(f"\nRaw response text:\n{response}")
+    
     use_toolname, action_input = parse_latest_plugin_call(response)
     if use_toolname == "":
-        return "no tool founds"
-    action_input = json.loads(action_input)
+        logger.debug("No tool call found in response")
+        return "no tool found"
+    
+    logger.debug(f"Parsed tool name: {use_toolname}")
+    logger.debug(f"Parsed action input: {action_input}")
+    
     try:
+        action_input = json.loads(action_input)
+        logger.debug(f"Decoded action input: {action_input}")
+        
         if use_toolname == "get_repo_tree":
-            observed_content = available_functions["get_repo_tree"](action_input.get("repo_full_name"), action_input.get("branch"))
-        if use_toolname == "get_repo_file_content":
-            observed_content = available_functions["get_repo_file_content"](action_input.get("repo_full_name"), action_input.get("file_path"), action_input.get("branch"))
+            logger.debug("Calling get_repo_tree function")
+            observed_content = available_functions["get_repo_tree"](
+                action_input.get("repo_full_name"), 
+                action_input.get("branch")
+            )
+            
+        elif use_toolname == "get_repo_file_content":
+            logger.debug("Calling get_repo_file_content function") 
+            observed_content = available_functions["get_repo_file_content"](
+                action_input.get("repo_full_name"),
+                action_input.get("file_path"),
+                action_input.get("branch")
+            )
+            
+        logger.debug(f"Function call successful. Result length: {len(observed_content)}")
+        return observed_content
+        
     except Exception as e:
+        logger.error(f"Error in use_api: {str(e)}")
         return f"Error: {e}"
-    return observed_content
 
-def color_text(text: str) -> str:
-    # 将Thought部分用绿色，其他部分用白色
-    colored_text = ""
-    lines = text.split('\n')
-    for line in lines:
-        if line.startswith("Thought:"):
-            colored_text += f"{GREEN}{line}{RESET}\n"
-        else:
-            colored_text += f"{WHITE}{line}{RESET}\n"
-    return colored_text
-
-prompt = build_planning_prompt(TOOLS, query="分析https://github.com/shadow1ng/fscan，查看相关源码，告诉我redis系统反弹shell相关的代码在哪里，并解释这些代码的含义。")
-print(prompt)
-response = call_with_messages(prompt)
-print(color_text(response))
-while "Final Answer" not in response:
-    api_output = use_api(TOOLS, response)
-    if api_output == "no tool founds":
-        continue
-    prompt = prompt + response + "Observation:\n" + api_output
-    print("Observation:\n" + api_output)
+def run_agent(query: str, max_iterations: int = 10) -> str:
+    """Run the agent with the given query.
+    
+    Args:
+        query: The input query to process
+        max_iterations: Maximum number of iterations to run
+        
+    Returns:
+        The final answer from the agent
+        
+    Raises:
+        RuntimeError: If the agent exceeds the maximum iterations
+    """
+    prompt = build_planning_prompt(TOOLS, query)
+    print(prompt)
+    
     response = call_with_messages(prompt)
-    print(color_text(response))
+    iteration = 0
+    
+    while "Final Answer" not in response and iteration < max_iterations:
+        api_output = use_api(TOOLS, response)
+        if api_output == "no tool founds":
+            iteration += 1
+            continue
+            
+        prompt = prompt + response + "Observation:\n" + api_output
+        print("\nObservation:\n" + api_output)
+        response = call_with_messages(prompt)
+        iteration += 1
+    
+    if iteration >= max_iterations:
+        raise RuntimeError("Agent exceeded maximum iterations without reaching a final answer")
+    
+    return response
 
+if __name__ == "__main__":
+    try:
+        query = "分析https://github.com/shadow1ng/fscan，查看相关源码，告诉我redis系统反弹shell相关的代码在哪里，并解释这些代码的含义。"
+        final_answer = run_agent(query)
+        print(f"\nFinal Answer:\n{final_answer}")
+    except Exception as e:
+        print(f"Error: {str(e)}")
