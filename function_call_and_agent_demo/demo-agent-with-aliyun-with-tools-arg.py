@@ -143,6 +143,7 @@ def execute_function(tool_call: Dict[str, Any]) -> str:
 
 def run_agent(query: str, max_iterations: int = 10) -> str:
     """Run the agent with the given query."""
+    logger.info(f"Starting agent with query: {query}")
     messages = [
         {"role": "system", "content": "You are a helpful assistant for software development tasks."},
         {"role": "user", "content": query}
@@ -151,14 +152,24 @@ def run_agent(query: str, max_iterations: int = 10) -> str:
     iteration = 0
     while iteration < max_iterations:
         try:
+            logger.info("Calling LLM with messages:")
+            for msg in messages:
+                logger.info(f"{msg['role'].capitalize()}: {msg['content']}")
+            
             response = call_with_messages(messages)
+            logger.info(f"Received LLM response: {response}")
             
             if not response.tool_calls:
                 # No tool calls, return the final answer
+                logger.info("No tool calls detected, returning final answer")
                 return response.content
             
             # Handle tool calls
             if response.tool_calls:
+                logger.info(f"Received {len(response.tool_calls)} tool calls")
+                for i, tool_call in enumerate(response.tool_calls):
+                    logger.info(f"Tool call {i+1}: {tool_call.function.name} with args: {tool_call.function.arguments}")
+                
                 # First add the assistant message with tool calls
                 messages.append({
                     "role": response.role,
@@ -169,6 +180,7 @@ def run_agent(query: str, max_iterations: int = 10) -> str:
                 # Then add tool responses
                 for tool_call in response.tool_calls:
                     function_response = execute_function(tool_call)
+                    logger.info(f"Tool execution result for {tool_call.function.name}: {function_response[:200]}...")  # Truncate long responses
                     messages.append({
                         "role": "tool",
                         "content": function_response,
@@ -182,12 +194,17 @@ def run_agent(query: str, max_iterations: int = 10) -> str:
             logger.error(f"Error in iteration {iteration}: {str(e)}")
             return f"Error: {str(e)}"
     
-    raise RuntimeError("Agent exceeded maximum iterations without reaching a final answer")
+    error_msg = "Agent exceeded maximum iterations without reaching a final answer"
+    logger.error(error_msg)
+    raise RuntimeError(error_msg)
 
 if __name__ == "__main__":
     try:
         query = "https://github.com/ai-shifu/ChatALL 是如何接入OpenAI的？"
+        logger.info(f"Starting agent with query: {query}")
         final_answer = run_agent(query)
+        logger.info(f"Agent completed successfully with final answer")
         print(f"\nFinal Answer:\n{final_answer}")
     except Exception as e:
+        logger.error(f"Agent failed with error: {str(e)}")
         print(f"Error: {str(e)}")
