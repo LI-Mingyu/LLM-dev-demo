@@ -151,13 +151,15 @@ I have access to the following tools:
 
 {tool_descs}
 
-I will write exactly one of the following items:
+I will write exactly one of the these elements per response:
 
-- Thought: I always think about what to do.
-- Action: the action to take, should be one of [{tool_names}]. Action Input: the input to the action
+- Thought: I always think about what to do, analyze the problem step by step, and explain my reasoning process.
+- Action: the action to take, should be one of [{tool_names}]. Action Input: the input to the action, should be a valid JSON object.
+- Observation: the result of the action.
 - Final Answer: the final answer to the original question.
 
-I NEVER guess or assume repository structures, file contents, or code details based on my own knowledge, but use the provided tools to get REAL data from the GitHub repository. 
+I NEVER guess or assume repository structures, file contents, or code details based on my own knowledge, but use the provided tools to get REAL data from the GitHub repository.
+The results of 'Observation' should always be get by tool calls, I NEVER make up any content of 'Observation'.
 
 Begin!
 """
@@ -360,8 +362,8 @@ def run_agent(query: str, max_iterations: int = 10) -> str:
 
 if __name__ == "__main__":
     try:
-        # query = "分析https://github.com/shadow1ng/fscan，查看相关源码，告诉我redis系统反弹shell相关的代码在哪里，并解释这些代码的含义。"
-        query = "https://github.com/ai-shifu/ChatALL 是如何接入OpenAI的？。"
+        query = "分析https://github.com/shadow1ng/fscan，查看相关源码，告诉我redis系统反弹shell相关的代码在哪里，并解释这些代码的含义。"
+        # query = "https://github.com/ai-shifu/ChatALL 是如何接入OpenAI的？。"
         final_answer = run_agent(query)
         print(f"\nFinal Answer:\n{final_answer}")
     except Exception as e:
