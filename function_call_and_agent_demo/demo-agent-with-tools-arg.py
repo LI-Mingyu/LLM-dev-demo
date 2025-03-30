@@ -110,21 +110,23 @@ available_functions = {
 
 def call_with_messages(messages: List[Dict[str, Any]]) -> Dict[str, Any]:
     """Make an API call to the LLM with tool support."""
-    api_key = os.getenv("DASHSCOPE_API_KEY")
+    api_key = os.getenv("API_KEY")
     if not api_key:
-        raise ValueError("DASHSCOPE_API_KEY environment variable is required")
+        raise ValueError("API_KEY environment variable is required")
     
     client = OpenAI(
         api_key=api_key,
-        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+        base_url="https://api.siliconflow.cn/v1/"
+        # base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
     )
 
     try:
         response = client.chat.completions.create(
-            model="qwen-max",
+            model="Pro/deepseek-ai/DeepSeek-V3",
+            # model="qwen-max",
             messages=messages,
             tools=TOOLS,
-            tool_choice="auto"
+            temperature=0.5
         )
         return response.choices[0].message
     except Exception as e:
