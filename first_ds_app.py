@@ -45,7 +45,8 @@ while True:
     completion = client.chat.completions.create(
         model=args.model,
         messages=messages,
-        stream=True
+        stream=True,
+        temperature=0.7
     )
     
     for chunk in completion:
@@ -64,7 +65,7 @@ while True:
                     has_reasoning = True
                     print(f"\n{args.model} 正在思考...")
                 
-                print(delta.reasoning_content, end='', flush=True)
+                print(f"\033[37m{delta.reasoning_content}\033[0m", end='', flush=True)
                 reasoning_content += delta.reasoning_content
             
             # 处理回复内容
