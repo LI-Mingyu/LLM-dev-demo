@@ -42,7 +42,6 @@ python function_call_and_agent_demo/mcp_server_demo.py     # MCP 服务端
 python function_call_and_agent_demo/mcp_client_agent_demo.py  # MCP 客户端 agent
 
 # Streamlit 应用
-streamlit run AliyunQA_RAG_demo/chat.py              # 需本地 Redis 向量库
 streamlit run function_call_and_agent_demo/excel-process/app.py
 ```
 

@@ -56,9 +56,9 @@ The synthetic sales workbooks, generated summaries, and fine-tuning examples cre
 
 The following materials are included as demonstration corpora or archived examples. Public availability does not transfer copyright or imply an open-source license:
 
-- `PDF_RAG_demo/ICBC_2024_FYR.pdf`
+- `archive/PDF_RAG_demo/ICBC_2024_FYR.pdf`
 - `archive/pdf_rag_demo_corpus/`
-- `AliyunQA_RAG_demo/scrapy-prj-aliyunecs/qa.json`
+- `archive/AliyunQA_RAG_demo/scrapy-prj-aliyunecs/qa.json`（副本位于 `data/aliyun_ecs_qa.json`）
 
 These materials remain the property of their respective publishers or rights holders and are excluded from the repository’s Apache-2.0 grant. Users are responsible for complying with the original sites’ terms, copyright notices, and applicable law.
 

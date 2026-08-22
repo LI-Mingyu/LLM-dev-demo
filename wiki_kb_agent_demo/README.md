@@ -70,4 +70,4 @@ python kb_agent.py --once "什么是 RAG？"      # 单轮提问
 |---|---|
 | 我的 wiki 入口页不叫 index.md | 改 `kb_agent.py` 里的 `ENTRY_PAGE` 常量即可 |
 | 探索轮数不够 / 太多 | 调整 `MAX_TOOL_ROUNDS`（默认 10） |
-| 知识库很大、导航太慢 | 加一个 embedding 版的 `search_wiki` 工具作为补充（可参考 `AliyunQA_RAG_demo/` 的召回实现） |
+| 知识库很大、导航太慢 | 加一个 embedding 版的 `search_wiki` 工具作为补充（可参考 `mini_rag_demo.py` 的检索实现） |

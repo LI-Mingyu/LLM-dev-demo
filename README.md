@@ -45,8 +45,6 @@ export DASHSCOPE_API_KEY=<阿里云百炼 Key>
 | Demo | 说明 |
 |---|---|
 | `mini_rag_demo.py` | **自包含 RAG 全链路**：HTML清洗→切块→embedding→余弦检索→生成（索引缓存，无需 Redis） |
-| `AliyunQA_RAG_demo/` | 阿里云运维问答：Scrapy 采集 + Redis 向量库 + **向量召回 + rerank 精排**（Streamlit 界面） |
-| `PDF_RAG_demo/` | PDF 文档 RAG（notebook，含表格/图片处理） |
 | `wiki_kb_agent_demo/` | LLM Wiki 知识库接入 Agent：从 index.md 出发的自然语言导航式检索（read_page/list_pages/grep_kb 工具，零 embedding） |
 
 ### Text2SQL
@@ -64,7 +62,7 @@ export DASHSCOPE_API_KEY=<阿里云百炼 Key>
 
 1. **基础**：`first_llm_call.py` → `first_llm_app.py` → `structured_output_demo.py`
 2. **Agent**：`demo-agent-with-tools-arg.py` → `langgraph_demo` → `agent_harness_demo`（Agent Harness + Skills）→ MCP demo
-3. **RAG**：`mini_rag_demo.py`（无依赖全链路）→ `AliyunQA_RAG_demo`（召回+重排）→ `PDF_RAG_demo`
+3. **RAG**：`mini_rag_demo.py`（无依赖全链路）→ `wiki_kb_agent_demo`（导航式知识库）
 4. **数据**：`text2sql_demo.py` → `excel-process`
 5. **综合**：`finance_doc_review/`
 

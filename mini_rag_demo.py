@@ -6,7 +6,7 @@ Mini RAG 示例：检索增强生成全链路
     文档 → 清洗 → 切块(chunking) → embedding 向量化 → 余弦相似度检索 Top-K
          → 拼装上下文 → LLM 生成答案
 
-语料：AliyunQA_RAG_demo/scrapy-prj-aliyunecs/qa.json（335 条阿里云 ECS 运维文档）
+语料：data/aliyun_ecs_qa.json（335 条阿里云 ECS 运维文档，源出已归档的 AliyunQA_RAG_demo）
 向量化：qwen3.7-text-embedding（云端，索引缓存到本地 .npz 避免重复计费）
 生成：环境变量 MODEL（默认 qwen3.6-27b）
 
@@ -31,7 +31,7 @@ from openai import OpenAI
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # 加载项目根目录 .env（API_KEY / API_BASE / MODEL / EMBED_MODEL，见 .env.example）
 load_dotenv(Path(SCRIPT_DIR) / ".env")
-CORPUS_PATH = os.path.join(SCRIPT_DIR, "AliyunQA_RAG_demo", "scrapy-prj-aliyunecs", "qa.json")
+CORPUS_PATH = os.path.join(SCRIPT_DIR, "data", "aliyun_ecs_qa.json")
 INDEX_PATH = os.path.join(SCRIPT_DIR, "rag_index.npz")
 META_PATH = os.path.join(SCRIPT_DIR, "rag_index_meta.json")
 
