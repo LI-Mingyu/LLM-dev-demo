@@ -51,7 +51,6 @@ export DASHSCOPE_API_KEY=<阿里云百炼 Key>
 | Demo | 说明 |
 |---|---|
 | `text2sql_demo.py` | schema 自动内省 + function calling 执行 SQL + 错误自修复（Chinook 示例库） |
-| `vanna_demo.ipynb` | Vanna 框架 Text2SQL（对比路线） |
 
 ### 生产风格完整项目
 | Demo | 说明 |
